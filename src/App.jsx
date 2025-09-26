@@ -12,6 +12,7 @@ import '@solana/wallet-adapter-react-ui/styles.css';
 import {RequestAirDrop} from "./RequestAirDrop.jsx";
 import {UserDetails} from "./UserDetails.jsx";
 import {SendTokens} from "./SendTokens.jsx";
+import {SignMessage} from "./SignMessage.jsx";
 
 function App() {
   return (
@@ -50,6 +51,12 @@ function App() {
                     <h3>📤 Send Tokens</h3>
                     <p>Transfer SOL to other wallets</p>
                     <SendTokens/>
+                  </div>
+
+                  <div className="feature-card">
+                    <h3>📝 Sign Message</h3>
+                    <p>Sign any message with your wallet</p>
+                    <SignMessage/>
                   </div>
 
                 </main>

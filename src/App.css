@@ -306,3 +306,97 @@ body {
   cursor: not-allowed;
   opacity: 0.7;
 }
+
+/* Sign Message Card */
+.sign-message-card {
+  background: linear-gradient(135deg, #9c27b0, #673ab7);
+  color: white;
+}
+
+.sign-message-card h3,
+.sign-message-card p {
+  color: white;
+}
+
+/* Sign Form Styles */
+.sign-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sign-form input {
+  padding: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.sign-form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sign-form input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sign-form input:disabled {
+  background-color: rgba(255, 255, 255, 0.05);
+  cursor: not-allowed;
+}
+
+.sign-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sign-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.sign-btn:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Alternative - if you want it to match other cards exactly */
+.sign-message-card-white {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+}
+
+.sign-message-card-white .sign-form input {
+  border: 2px solid #e0e0e0;
+  background: white;
+  color: #333;
+}
+
+.sign-message-card-white .sign-form input::placeholder {
+  color: #999;
+}
+
+.sign-message-card-white .sign-btn {
+  background: linear-gradient(135deg, #9c27b0, #673ab7);
+  color: white;
+  border: none;
+}
+
+.sign-message-card-white .sign-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #7b1fa2, #512da8);
+}
