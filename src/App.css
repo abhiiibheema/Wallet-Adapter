@@ -14,20 +14,15 @@ body {
 
 /* Main app container */
 .app-container {
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 /* Main content wrapper */
 .main-content {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px;
 }
 
 /* Header styles */
@@ -36,47 +31,41 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 60px;
-  padding: 20px 0;
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  margin: 20px 0;
-  padding: 20px 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  padding: 25px 35px;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .logo h1 {
   color: white;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-
 }
 
 .wallet-controls {
   display: flex;
   gap: 15px;
   align-items: center;
-
 }
 
-/* Content area */
-.content-area {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 0;
+/* Dashboard - Grid Layout */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
 }
 
+/* Feature Cards */
 .feature-card {
   background: rgba(255, 255, 255, 0.95);
-  padding: 40px;
+  padding: 30px;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 500px;
-  width: 100%;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -87,25 +76,86 @@ body {
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
 }
 
-.feature-card h2 {
+.feature-card h3 {
   color: #333;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .feature-card p {
   color: #666;
-  font-size: 16px;
-  margin-bottom: 30px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-align: center;
   line-height: 1.5;
+}
+
+/* Special Balance Card */
+.balance-card {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.balance-card h3,
+.balance-card p {
+  color: white;
+}
+
+/* Send Form */
+.send-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.send-form input {
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.send-form input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.send-form input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.send-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.send-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.send-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 /* Footer */
 .footer {
   text-align: center;
   padding: 20px 0;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
 }
 
@@ -127,16 +177,6 @@ body {
   box-shadow: 0 6px 20px rgba(0, 212, 170, 0.4) !important;
 }
 
-.wallet-adapter-button[disabled] {
-  background: #ccc !important;
-  opacity: 0.6 !important;
-}
-
-/* Connect button specific */
-.connect-button {
-  background: linear-gradient(135deg, #00d4aa, #00a693) !important;
-}
-
 /* Disconnect button specific */
 .disconnect-button {
   background: linear-gradient(135deg, #ff6b6b, #ee5a52) !important;
@@ -152,32 +192,31 @@ body {
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
-    gap: 200px;
+    gap: 20px;
     text-align: center;
   }
 
-  .wallet-controls {
-    flex-wrap: wrap;
-    justify-content: center;
+  .dashboard {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .feature-card {
-    margin: 0 20px;
-    padding: 30px 20px;
+    padding: 25px 20px;
   }
 
   .main-content {
-    padding: 0 10px;
+    padding: 15px;
   }
 }
 
 @media (max-width: 480px) {
   .logo h1 {
-    font-size: 20px;
+    font-size: 24px;
   }
 
-  .feature-card h2 {
-    font-size: 24px;
+  .feature-card h3 {
+    font-size: 18px;
   }
 
   .wallet-adapter-button {
@@ -218,4 +257,51 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.5);
+}
+/* Airdrop Form Styles */
+.airdrop-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.airdrop-form input {
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.airdrop-form input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.airdrop-form input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.airdrop-btn {
+  background: linear-gradient(135deg, #00d4aa, #00a693);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.airdrop-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 212, 170, 0.3);
+}
+
+.airdrop-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
